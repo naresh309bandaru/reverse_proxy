@@ -1,0 +1,24 @@
+services:
+  food:
+    container_name: cont-1
+    build: ./food/
+    ports:
+      - "5001:80"
+
+  instamart:
+    container_name: cont-2
+    build: ./instamart/
+    ports:
+      - "5002:80"
+
+  reverse:
+    container_name: mycont
+    build: ./
+    ports:
+      - "5000:80"
+    depends_on:
+      - food
+      - instamart
+      
+
+
